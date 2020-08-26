@@ -17,7 +17,8 @@ cat << EOF > /config.json
             "settings": {
                 "clients": [
                     {
-                        "id": "$UUID"
+                        "id": "$UUID",
+                        "alterId": 8
                     }
                 ]
             },
