@@ -5,10 +5,10 @@
     "env": {
         "UUID": {
             "description": "v2ray UUID",
-            "value": "c95ef1d4-f3ac-4586-96e9-234a37dda068"        
+            "value": "bd8d4f1e-ed2f-447a-a4f8-8cc205ba7c17"        
         }
     },
     "website": "https://yeahwu.com",
-    "repository": "https://github.com/yeahwu/v2-heroku",
+    "repository": "https://github.com/dustinice/v2-heroku",
     "stack": "container"
 }
