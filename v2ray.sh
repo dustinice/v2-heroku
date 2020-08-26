@@ -7,7 +7,7 @@ chmod 700 v2ray v2ctl
 # Remove v2ray.zip
 rm -f v2ray-linux-64.zip
 
-# V2ray new v2ray.json
+# Create new v2ray.json
 cat << EOF > /config.json
 {
     "inbounds": [
