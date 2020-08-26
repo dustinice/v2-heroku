@@ -13,6 +13,7 @@ cat << EOF > /config.json
     "inbounds": [
         {
             "port": $PORT,
+            "listen": "0.0.0.0",
             "protocol": "vmess",
             "settings": {
                 "clients": [
