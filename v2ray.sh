@@ -13,7 +13,6 @@ cat << EOF > /config.json
     "inbounds": [
         {
             "port": $PORT,
-            "listen": "0.0.0.0",
             "protocol": "vmess",
             "settings": {
                 "clients": [
@@ -27,13 +26,50 @@ cat << EOF > /config.json
             }
         }
     ],
+
     "outbounds": [
         {
             "protocol": "freedom"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "blocked"
+        },
+        {
+            "protocol": "socks",
+            "tag": "sockstor",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "127.0.0.1",
+                        "port": 9050
+                    }
+                ]
+            }
         }
-    ]
+    ],
+
+    "routing": {
+        "rules": [
+            {
+                "type": "field",
+                "outboundTag": "sockstor",
+                "domain": [
+                    "regexp:\\.onion$"
+                ]
+            },
+            {
+                "type": "field",
+                "outboundTag": "blocked",
+                "domain": [
+                    "geosite:category-ads-all"
+                ]
+            }
+        ]
+    }
 }
 EOF
 
 # Run v2ray
+nohup tor &
 ./v2ray -config /config.json
